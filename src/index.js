@@ -23,7 +23,7 @@ function Content(props){
 
     const imgContent = <div className = {imgClass}><img src = {deku} alt="deku meme"></img></div>;
     const textContent = <div className = {textClass}><p>The waifu war is brutal.  You may think that calling out someones waifu
-    is all fun and games, but look at this man.  The pain expressed in his face.  This what all weebs are going through
+    is all fun and games, but look at this man.  The pain expressed on his face.  This is what all weebs are going through
     right now, every day.</p></div>;
 
     return <div className= {'Content' + borderSide}>
