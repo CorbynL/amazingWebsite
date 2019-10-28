@@ -34,14 +34,14 @@ function Content(props){
 
 function IWasHereForm(){
     return <div className="IWasHereForm">
-        <form>
+        <form id="names">
         <label>FirstName:</label>
         <input type="text" name="firstName"></input>
         <label>LastName:</label>
         <input type="text" name="firstName"></input>
-        </form>
-        <button>owo</button>
-    </div>;
+        </form>  
+        <button type="submit">owo</button>  
+    </div>
 }
 
 class App extends React.Component{
