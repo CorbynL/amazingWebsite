@@ -10,15 +10,15 @@ function Header(){
 function Content(props){
     let imgClass = 'ContentImage';
     let textClass;
-    let borderSide;
+    let contentPosition;
     if (props.i%2===0){
         imgClass += ' ContentImageLeft';
         textClass = 'ContentTextLeft';
-        borderSide = ' topContent';
+        contentPosition = ' topContent ContentLeft';
     } else {
         imgClass += ' ContentImageRight';
         textClass = 'ContentTextRight';
-        borderSide = '';
+        contentPosition = ' ContentRight';
     }
 
     const imgContent = <div className = {imgClass}><img src = {deku} alt="deku meme"></img></div>;
@@ -26,7 +26,7 @@ function Content(props){
     is all fun and games, but look at this man.  The pain expressed on his face.  This is what all weebs are going through
     right now, every day.</p></div>;
 
-    return <div className= {'Content' + borderSide}>
+    return <div className= {'Content' + contentPosition}>
         {imgContent}
         {textContent}
         </div>;
