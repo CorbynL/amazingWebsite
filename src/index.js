@@ -7,6 +7,15 @@ function Header(){
     return <div className="Header" ><p>Welcome to my humble domain</p></div>;
 }
 
+function SideBar() {
+    return <div SideBar className="SideBar">
+        <a href="#Home">Home</a>
+        <a href="#Stuff">Stuff</a>
+        <a href="#Cooler Stuff">Cooler Stuff</a>
+
+    </div>;
+}
+
 function Content(props){
     let imgClass = 'ContentImage';
     let textClass;
@@ -32,6 +41,20 @@ function Content(props){
         </div>;
 }
 
+function Main() {
+    let i = 0;
+
+    return (
+        <div className="Main">
+        <Header />
+        <Content i = {i++}></Content>
+        <Content>i = {i++}</Content>
+        <IWasHereForm></IWasHereForm>
+        <Content i = {i++}></Content>
+        <Content>i = {i++}</Content>
+        </div>);
+}
+
 function IWasHereForm(){
     return <div className="IWasHereForm">
         <form id="names">
@@ -47,15 +70,10 @@ function IWasHereForm(){
 class App extends React.Component{
 
      render() {
-        let i = 0;
 
         return <div className = "App">
-        <Header></Header>
-        <Content i = {i++}></Content>
-        <Content>i = {i++}</Content>
-        <IWasHereForm></IWasHereForm>
-        <Content i = {i++}></Content>
-        <Content>i = {i++}</Content>
+        <SideBar />
+        <Main />      
         </div>;
     }
 }
