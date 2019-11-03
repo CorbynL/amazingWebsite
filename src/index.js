@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import deku from './images/deku.png'
+import { useState, useEffect } from 'react';
+import { timeout } from 'q';
 
 function Header(){
     return <div className="Header" ><p>Welcome to my humble domain</p></div>;
@@ -20,6 +22,7 @@ function Content(props){
     let imgClass = 'ContentImage';
     let textClass;
     let contentPosition;
+
     if (props.i%2===0){
         imgClass += ' ContentImageLeft';
         textClass = 'ContentTextLeft';
@@ -44,8 +47,20 @@ function Content(props){
 function Main() {
     let i = 0;
 
+    const [data,setData] = useState("Loading...");
+
+    useEffect(() => {
+        async function fetchData() {
+           const response = await fetch('http://localhost:3001/');
+           const data = await response.json(); 
+        setData(data.msg);
+        }
+        fetchData();
+   }, []);
+
     return (
         <div className="Main">
+        <h1>{data}</h1>
         <Header />
         <Content i = {i++}></Content>
         <Content>i = {i++}</Content>
