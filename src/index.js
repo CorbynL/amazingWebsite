@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import deku from './images/deku.png'
 import { useState, useEffect } from 'react';
-import { timeout } from 'q';
+
 
 function Header(){
     return <div className="Header" ><p>Welcome to my humble domain</p></div>;
@@ -18,29 +18,32 @@ function SideBar() {
     </div>;
 }
 
+function NavBar(){
+    return <div className="NavBar">
+        <ul>
+            <li href="#">Home</li> 
+            <li href="#">About</li>
+            <li href="#">More Stuff</li>
+        </ul>
+    </div>;
+}
+
 function Content(props){
     let imgClass = 'ContentImage';
-    let textClass;
-    let contentPosition;
-
-    if (props.i%2===0){
-        imgClass += ' ContentImageLeft';
-        textClass = 'ContentTextLeft';
-        contentPosition = ' topContent ContentLeft';
-    } else {
-        imgClass += ' ContentImageRight';
-        textClass = 'ContentTextRight';
-        contentPosition = ' ContentRight';
-    }
+    let textClass = 'ContentText';
+    let contentPosition = '';
 
     const imgContent = <div className = {imgClass}><img src = {deku} alt="deku meme"></img></div>;
-    const textContent = <div className = {textClass}><p>The waifu war is brutal.  You may think that calling out someones waifu
+    const textContent = <div className = {textClass}>The waifu war is brutal.  You may think that calling out someones waifu
     is all fun and games, but look at this man.  The pain expressed on his face.  This is what all weebs are going through
-    right now, every day.</p></div>;
+    right now, every day.</div>;
 
     return <div className= {'Content' + contentPosition}>
-        {imgContent}
-        {textContent}
+       {props.i%2===0 ?
+        [imgContent,
+        textContent] :
+        [textContent,
+        imgContent]}
         </div>;
 }
 
@@ -56,7 +59,7 @@ function Main() {
         setData(data.msg);
         }
         fetchData();
-   }, []);
+   });
 
     return (
         <div className="Main">
@@ -64,21 +67,27 @@ function Main() {
         <Header />
         <Content i = {i++}></Content>
         <Content>i = {i++}</Content>
-        <IWasHereForm></IWasHereForm>
+        <IWasHereForm setData={setData}></IWasHereForm>
         <Content i = {i++}></Content>
         <Content>i = {i++}</Content>
         </div>);
 }
 
-function IWasHereForm(){
+function IWasHereForm(props){
+
+    const handleSubmit = () => {
+        const name = document.getElementById('firstName');
+        props.setData(name.value);
+    }
+
     return <div className="IWasHereForm">
-        <form id="names">
+        <form method="post">
         <label>FirstName:</label>
-        <input type="text" name="firstName"></input>
+        <input type="text" id="firstName"></input>
         <label>LastName:</label>
         <input type="text" name="firstName"></input>
         </form>  
-        <button type="submit">owo</button>  
+        <button type="submit" onClick={handleSubmit}>owo</button>  
     </div>
 }
 
@@ -88,6 +97,7 @@ class App extends React.Component{
 
         return <div className = "App">
         <SideBar />
+        <NavBar />
         <Main />      
         </div>;
     }
