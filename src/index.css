@@ -27,39 +27,25 @@ html,body {
   top: 50%;
   transform: translateY(-50%); }   
 
-/* .SideBar {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  padding-top: 20px;
-}
-
-.SideBar a {
-  display: block;
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-} */
-
-.SideBar a:hover {
-  color: #f1f1f1;
-}
-
-.NavBar {
-  background-color: blue;
-}
-
 .NavBar ul {
-  list-style: none;
+  list-style-type: none;
+  background-color: #333;
 }
 
 .NavBar li {
-  display: inline;
+  display: inline-block;
+}
+
+.NavBar a:hover {
+  background-color: black;
+}
+
+.NavBar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 .Content {
@@ -87,7 +73,6 @@ html,body {
 }
 
 .ContentImage {
-
   width: 30%;
   display: inline-flex;
 }

@@ -21,9 +21,9 @@ function SideBar() {
 function NavBar(){
     return <div className="NavBar">
         <ul>
-            <li href="#">Home</li> 
-            <li href="#">About</li>
-            <li href="#">More Stuff</li>
+            <li href="#"><a class="active" href="#home">Home</a></li> 
+            <li href="#"><a class="active" href="#home">Home</a></li>
+            <li href="#"><a class="active" href="#home">Home</a></li>
         </ul>
     </div>;
 }
@@ -96,7 +96,6 @@ class App extends React.Component{
      render() {
 
         return <div className = "App">
-        <SideBar />
         <NavBar />
         <Main />      
         </div>;
