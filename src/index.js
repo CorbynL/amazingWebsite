@@ -28,7 +28,7 @@ function NavBar(){
     </div>;
 }
 
-function Content(props){
+function Content({i}){
     let imgClass = 'ContentImage';
     let textClass = 'ContentText';
     let contentPosition = '';
@@ -39,7 +39,7 @@ function Content(props){
     right now, every day.</div>;
 
     return <div className= {'Content' + contentPosition}>
-       {props.i%2===0 ?
+       {i%2===0 ?
         [imgContent,
         textContent] :
         [textContent,
@@ -65,19 +65,19 @@ function Main() {
         <div className="Main">
         <h1>{data}</h1>
         <Header />
+        <IWasHereForm setData={setData}></IWasHereForm>
         <Content i = {i++}></Content>
         <Content>i = {i++}</Content>
-        <IWasHereForm setData={setData}></IWasHereForm>
         <Content i = {i++}></Content>
         <Content>i = {i++}</Content>
         </div>);
 }
 
-function IWasHereForm(props){
+function IWasHereForm({setData}){
 
     const handleSubmit = () => {
         const name = document.getElementById('firstName');
-        props.setData(name.value);
+        setData(name.value);
     }
 
     return <div className="IWasHereForm">
