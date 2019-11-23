@@ -63,7 +63,12 @@ html,body {
 
 .Content:hover {
   background-color: #29262A;
+  color: #dddddd;
 }
+
+/* .Page {
+  display: flex;
+} */
 
 .ContentLeft {
   background-color: #6C6F6F;
@@ -120,10 +125,34 @@ img {
   outline: none;
 }
 
-.IWasHereForm  button { 
+.Page {
+  display: flex;
+}
+
+.SignUpButton {
+  display: flex;
+  justify-content: center;
+}
+
+button { 
   margin: 10px;
   font-size: 32px;
-  width: 15%;
+  /* width: 15%; */
+  background: #baf73c;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 2px 5px 1px #222222;
+  transition: all 0.3s;
+}
+
+a {
+  text-decoration: none;
+}
+
+.IWasHereForm button { 
+  margin: 10px;
+  font-size: 32px;
+  /* width: 15%; */
   background: #baf73c;
   border: none;
   border-radius: 3px;
