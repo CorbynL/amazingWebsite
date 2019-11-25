@@ -63,10 +63,9 @@ function Main({setPage, data, setData}) {
 
 function IWasHereForm({setData}){
 
-    // const handleSubmit = () => {
-    //     const name = document.getElementById('firstName');
-    //     setData(name.value);
-    // }
+    function handleClick(e){ 
+        setData(document.getElementById('firstName').value);
+    }
 
     return <div className="IWasHereForm">
         <form method="post">
@@ -74,19 +73,19 @@ function IWasHereForm({setData}){
         <input type="text" id="firstName"></input>
         <label>LastName:</label>
         <input type="text" name="firstName"></input>
-        {/* <break></break> */}
         </form>  
-        <Link to='/Login'>
-            <button type="submit" >owo</button>
-        </Link>  
+        {/* <Link to='/Login'> */}
+            <button onClick={handleClick} >owo</button>
+        {/* </Link>   */}
     </div>
 }
 
-function FrontPage (props){
+function FrontPage ({data, setData, ...props}){
      return (
         <div className = "FrontPage">
+        <h2>{data}</h2>
         <NavBar />
-        <Main {...props} />      
+        <Main data={data} setData={setData}/>      
         </div>
      );
 }
